@@ -14,6 +14,7 @@ import org.jdom2.JDOMException;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * @author ms
@@ -204,6 +205,14 @@ public class OpenMenu extends javax.swing.JPanel {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(gui.currentDirectory);
         chooser.setSelectedFile(new File("output.xml"));
+        FileNameExtensionFilter xmlfilter = new FileNameExtensionFilter(
+                "xml files (*.xml)", "xml"
+        );
+
+        chooser.setDialogTitle("Select a TEI-HisDoc file");
+        // set selected filter
+        chooser.setFileFilter(xmlfilter);
+        
 
         int c = chooser.showSaveDialog(this);
         if (c == 1) {
@@ -238,7 +247,14 @@ public class OpenMenu extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(gui.currentDirectory);
+        FileNameExtensionFilter xmlfilter = new FileNameExtensionFilter(
+                "xml files (*.xml)", "xml"
+        );
 
+        chooser.setDialogTitle("Select a TEI-HisDoc file");
+        // set selected filter
+        chooser.setFileFilter(xmlfilter);
+        
         int c = chooser.showOpenDialog(this);
         if (c == 1) {
             return;
