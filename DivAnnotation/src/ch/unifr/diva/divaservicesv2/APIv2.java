@@ -48,8 +48,7 @@ public class APIv2 {
     public static String getImageName(BufferedImage bi) throws UnirestException {
         List<Map<String, String>> fileValues = new ArrayList<>();
         Map<String, String> v = new HashMap<>();
-        v.put("name", "X");
-        v.put("extension", "png");
+        v.put("name", "X.png");
         v.put("type", "image");
         v.put("value", imgToBase64String(bi, "png"));
         fileValues.add(v);
@@ -61,7 +60,6 @@ public class APIv2 {
                 object.put("type", values.get("type"));
                 object.put("value", values.get("value"));
                 object.put("name", values.get("name"));
-                object.put("extension", values.get("extension"));
                 files.put(object);
             }
         reqBody.put("files", files);
