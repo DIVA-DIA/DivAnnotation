@@ -31,7 +31,7 @@ public abstract class Result<T> {
             return false;
         }
         
-        if (response.getBody().getObject().getString("status").equals("planned")) {
+        if (response.getBody().getObject().getString("status").equals("planned") || response.getBody().getObject().getString("status").equals("running")) {
             response = null;
             return false;
         }
